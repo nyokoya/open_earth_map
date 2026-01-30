@@ -1,6 +1,8 @@
 import os
 import numpy as np
 import torch
+import torch.serialization
+torch.serialization.add_safe_globals([np._core.multiarray.scalar])
 
 class_rgb_oem = {
     "unknown": [0, 0, 0],
@@ -91,7 +93,7 @@ def load_checkpoint(model, model_name: str, model_dir: str = "./"):
         _type_: _description_
     """
     fn_model = os.path.join(model_dir, model_name)
-    checkpoint = torch.load(fn_model, map_location="cpu")
+    checkpoint = torch.load(fn_model, map_location="cpu", weights_only=False)
     loaded_dict = checkpoint["state_dict"]
     sd = model.state_dict()
     for k in model.state_dict():

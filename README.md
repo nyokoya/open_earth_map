@@ -53,3 +53,7 @@ This example shows the application for multi-class semantic segmentation using a
 
 ### Leaderboard
 Performance on the test set can be evaluated on the [Codalab webpage](https://codalab.lisn.upsaclay.fr/competitions/9121).
+
+### Notes
+This repository is a fork of https://github.com/bao18/open_earth_map.
+Minor modifications were made for experimental convenience.
